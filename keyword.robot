@@ -13,3 +13,11 @@ post_send_code
     log    ${res.content}
     ${a}    evaluate    '${res.content}'.decode('utf-8')
     should contain    ${a}    提交成功
+
+get_send_mobile
+    [Arguments]    ${mobile_mon}    ${mobile_after}
+    [Documentation]    根据时间判断赋值，返回队应时间发送的电话号码
+    ${hour}    get time    hour
+    ${send_mobile}=    set variable if    ${hour}<=13    ${mobile_mon}    ${mobile_after}
+    log    ${send_mobile}
+    [Return]    ${send_mobile}
