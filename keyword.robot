@@ -22,3 +22,8 @@ get_send_mobile
     ${send_mobile}=    set variable if    ${hour_new}<=12    ${mobile_mon}    ${mobile_after}
     log    ${send_mobile}
     [Return]    ${send_mobile}
+
+get_curtime
+    ${timestr}    get time
+    log     您在钢钢网找回密码的验证码为：123456,请尽快操作,如果不是本人操作,请不必理会.发送时间：${timestr}【钢钢网】
+    [Return]    ${timestr}
