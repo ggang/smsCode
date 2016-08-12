@@ -18,6 +18,7 @@ get_send_mobile
     [Arguments]    ${mobile_mon}    ${mobile_after}
     [Documentation]    根据时间判断赋值，返回队应时间发送的电话号码
     ${hour}    get time    hour
-    ${send_mobile}=    set variable if    ${hour}<=13    ${mobile_mon}    ${mobile_after}
+    ${hour_new}    set variable if    '${hour}'=='09'    9
+    ${send_mobile}=    set variable if    ${hour_new}<=13    ${mobile_mon}    ${mobile_after}
     log    ${send_mobile}
     [Return]    ${send_mobile}
